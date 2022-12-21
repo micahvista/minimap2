@@ -267,6 +267,11 @@ def revcomp(seq):
 	r = s[:l] if isinstance(s, str) else s[:l].decode()
 	free(s)
 	return r
+def test_return():
+	cdef cmappy.kseq_t *ks
+	cdef cmappy.ksw_extz_t ez;
+    	cmappy.memset(&ez, 0, sizeof(ksw_extz_t));
+	ez = cmappy.align(ez, "ATAGCTAGCTAGCAT".encode(), "AGCTAcCGCAT".encode(), 1, -2, 2, 1);
 
 def verbose(v=None):
 	if v is None: v = -1
